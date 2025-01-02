@@ -1,0 +1,15 @@
+CFLAGS = -std=c11 -pedantic -Wall -D_XOPEN_SOURCE=700
+CC=gcc
+
+.PHONY: all clean
+
+all: main
+
+clean:
+	rm -f main
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
+
+main: main.o
+	$(CC) -o main main.o 
